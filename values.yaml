@@ -21,10 +21,10 @@ ingress:
     #nginx.ingress.kubernetes.io/ssl-passthrough: "true"
     kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
-  path: /
+  path: /nginx
   hosts:
-    - 
-#nginx-ibm.local
+    - nginx-chart.vs-development.svc.cluster.local
+    - a396d661e6d2511e995e70269489700c-606949184.us-east-1.elb.amazonaws.com
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
