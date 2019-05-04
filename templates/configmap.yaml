@@ -1,3 +1,4 @@
+{{- if .Values.configmap.enabled }}
 apiVersion: v1
 data: 
   nginx.conf: |
@@ -14,4 +15,5 @@ data:
     }
 kind: ConfigMap
 metadata:
-  name: nginx-config
+  name: {{ include "nginx-chart.fullname" . }}
+{{- end }}

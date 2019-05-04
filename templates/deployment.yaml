@@ -50,17 +50,21 @@ spec:
 {{ toYaml . | indent 8 }}
     {{- end }}
           volumeMounts:
+            {{- if .Values.configmap.enabled }}
             - name: config
               mountPath: /etc/nginx/nginx.conf
               subPath: nginx.conf
+            {{- end }}
             - name: data
               mountPath: /data
             - mountPath: /tmp
               name: tmp
       volumes:
+        {{- if .Values.configmap.enabled }}
         - name: config
           configMap:
-            name: nginx-config
+            name: {{ include "nginx-chart.fullname" . }}
+        {{- end }}
         - name: tmp
           emptyDir: {}
         - name: data
