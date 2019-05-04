@@ -1,22 +1,22 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: {{ template "nginx-ibm.fullname" . }}
+  name: {{ template "nginx-chart.fullname" . }}
   labels:
-    app: {{ template "nginx-ibm.name" . }}
-    chart: {{ template "nginx-ibm.chart" . }}
+    app: {{ template "nginx-chart.name" . }}
+    chart: {{ template "nginx-chart.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ template "nginx-ibm.name" . }}
+      app: {{ template "nginx-chart.name" . }}
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ template "nginx-ibm.name" . }}
+        app: {{ template "nginx-chart.name" . }}
         release: {{ .Release.Name }}
     spec:
       containers:
@@ -66,7 +66,7 @@ spec:
         - name: data
         {{- if .Values.persistence.enabled }}
           persistentVolumeClaim:
-            claimName: {{ .Values.persistence.existingClaim | default (include "nginx-ibm.fullname" .) }}
+            claimName: {{ .Values.persistence.existingClaim | default (include "nginx-chart.fullname" .) }}
         {{- else }}
           emptyDir: {}
         {{- end -}}

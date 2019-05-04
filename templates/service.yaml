@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "nginx-ibm.fullname" . }}
+  name: {{ template "nginx-chart.fullname" . }}
   labels:
-    app: {{ template "nginx-ibm.name" . }}
-    chart: {{ template "nginx-ibm.chart" . }}
+    app: {{ template "nginx-chart.name" . }}
+    chart: {{ template "nginx-chart.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
@@ -15,5 +15,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: {{ template "nginx-ibm.name" . }}
+    app: {{ template "nginx-chart.name" . }}
     release: {{ .Release.Name }}

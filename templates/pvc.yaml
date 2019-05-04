@@ -2,10 +2,10 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ include "nginx-ibm.fullname" . }}
+  name: {{ include "nginx-chart.fullname" . }}
   labels:
-    app: {{ template "nginx-ibm.name" . }}
-    chart: {{ template "nginx-ibm.chart" . }}
+    app: {{ template "nginx-chart.name" . }}
+    chart: {{ template "nginx-chart.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 {{- if .Values.persistence.annotations }}

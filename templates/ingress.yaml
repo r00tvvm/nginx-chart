@@ -1,5 +1,5 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "nginx-ibm.fullname" . -}}
+{{- $fullName := include "nginx-chart.fullname" . -}}
 {{- $servicePort := .Values.service.port -}}
 {{- $ingressPath := .Values.ingress.path -}}
 apiVersion: extensions/v1beta1
@@ -7,8 +7,8 @@ kind: Ingress
 metadata:
   name: {{ $fullName }}
   labels:
-    app: {{ template "nginx-ibm.name" . }}
-    chart: {{ template "nginx-ibm.chart" . }}
+    app: {{ template "nginx-chart.name" . }}
+    chart: {{ template "nginx-chart.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 {{- with .Values.ingress.annotations }}
