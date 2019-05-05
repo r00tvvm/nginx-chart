@@ -18,6 +18,10 @@ Clone repository and make application_deploy.sh executable
     [command]            list of helm commands and options to be executed subsequently
                          if 'del' command provided all other commands 
 ```
+Add Helm repo
+```
+helm repo add nginx-chart 'https://raw.githubusercontent.com/r00tvvm/nginx-chart/chart/'
+```
 
 ## Install Helm chart application to local helm repository
 ```
@@ -42,7 +46,8 @@ deploy.sh -n NAMESPACE -c nginx-chart
 ```
 * Minikube or Kubertenes cluster with ingress controller setup
 ```
-   
+   echo -n "curl $(kubectl -n <NAMESPACE> get svc <IngressService> -o 'jsonpath={..ingress[0].hostname}')/nginx"
+
 ```
 
 ## Delete Helm chart from Minikube or Kubernetes cluster
@@ -53,7 +58,7 @@ deploy.sh -c nginx-chart -n NAMESPACE del
 ## Degugging
 Run busybox
 ```
-kubectl run busybox -it --image=odise/busybox-curl --restart=Never --rm
+> kubectl run busybox -it --image=odise/busybox-curl --restart=Never --rm
 > curl <chart_name>.<namespace>.svc.cluster.local
 ```
 
