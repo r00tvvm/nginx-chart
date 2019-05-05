@@ -55,7 +55,7 @@ helm_deploy() {
 
 helm_pull_chart(){
     local CHART=$1
-    local GIT_URL=${2:-https://raw.githubusercontent.com/r00tvvm/$CHART/master/}
+    local GIT_URL=${2:-https://raw.githubusercontent.com/r00tvvm/$CHART/chart/}
 
     log "Pulling chart $CHART from $GIT_URL"
     set +x

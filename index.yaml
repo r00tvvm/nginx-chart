@@ -3,11 +3,11 @@ entries:
   nginx-chart:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-05-05T14:31:21.564580741-04:00
+    created: 2019-05-05T15:07:52.907300488-04:00
     description: A Helm chart for Kubernetes
-    digest: 135bf3327de76efe67e5e5ef701d983546de22bfc1a713159f8a8ef45c029e19
+    digest: 4fb65b4c7748818f4457b185f499b532a4b4f36f29ca868569e64ea76a38436a
     name: nginx-chart
     urls:
-    - https://github.com/r00tvvm/nginx-chart/chart/nginx-chart-0.1.0.tgz
+    - https://raw.githubusercontent.com/r00tvvm/nginx-chart/chart/nginx-chart-0.1.0.tgz
     version: 0.1.0
-generated: 2019-05-05T14:31:21.562382872-04:00
+generated: 2019-05-05T15:07:52.905005226-04:00
