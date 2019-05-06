@@ -4,7 +4,7 @@ This is a helm nginx chart to create sample E
 Install helm and kubectl
 Configure kubectl context to connect to Minikube or Kubernetes cluster
 ## Usage
-Clone repository and make application_deploy.sh executable
+*Clone repository and make application_deploy.sh executable
 ```
  > git clone https://github.com/r00tvvm/nginx-chart.git && cd nginx_chart
  > chmod +x deploy.sh
@@ -18,10 +18,15 @@ Clone repository and make application_deploy.sh executable
     [command]            list of helm commands and options to be executed subsequently
                          if 'del' command provided all other commands 
 ```
-Add Helm repo
+* Add Helm repo
 ```
 helm repo add nginx-chart 'https://raw.githubusercontent.com/r00tvvm/nginx-chart/chart/'
 ```
+* Test nginx-chart deployment
+```
+helm install --dry-run --debug --name=nginx-chart nginx-chart/nginx-chart
+```
+* Deploy Helm chart with script below
 
 ## Install Helm chart application to local helm repository
 ```
